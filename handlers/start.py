@@ -5,9 +5,10 @@ from keyboards.start_kb import start_kb
 
 start_router = Router()
 
+
 @start_router.message(Command('start'))
 async def start_cmd(message: types.Message):
-    await message.answer(f'Привет! {message.from_user.first_name}', reply_markup=start_kb())
+    await message.answer(f'{message.from_user.first_name}. Ресторан "Барашек" Вас приветствует!', reply_markup=start_kb())
 
 
 @start_router.message(Command('myinfo'))
