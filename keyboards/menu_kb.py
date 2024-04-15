@@ -1,5 +1,5 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-# from handlers.callback import snacks
+
 
 def menu_kb():
     kb = ReplyKeyboardMarkup(

@@ -1,4 +1,3 @@
-from aiogram.filters import Command
 from aiogram import Router, types, F
 
 
@@ -13,10 +12,3 @@ async def adress(callback: types.CallbackQuery):
 @callback_router.callback_query(F.data == 'contact')
 async def contact(callback: types.CallbackQuery):
     await callback.message.answer(text = 'Телефон: +996 (312) 52-11-11\n' 'Моб.тел.: +996 (556) 52-11-11\n' 'E-mail: barashek@kaynar.kg')
-
-
-# @callback_router.callback_query(F.data == 'snacks')
-# async def snacks(callback: types.CallbackQuery):
-#     print(callback.data)
-#     await callback.answer()
-#     await callback.message.answer(text='snacks-закуски')

@@ -9,7 +9,8 @@ def start_kb():
             [InlineKeyboardButton(text='О нас', url='https://barashek.kg/o-nas/')],
             [InlineKeyboardButton(text='Наш сайт', url='https://barashek.kg/')],
             [InlineKeyboardButton(text='Инстаграм', url='https://www.instagram.com/barashek.restaurant/')],
-            [InlineKeyboardButton(text='Наше меню', callback_data='menu')]
+            [InlineKeyboardButton(text='Наше меню', callback_data='menu')],
+            [InlineKeyboardButton(text='Оставить отзыв', callback_data='review')]
         ]
     )
     return kb

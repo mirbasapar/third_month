@@ -1,5 +1,4 @@
 from aiogram import Router, types
-from bot import bot
 import logging
 from aiogram.types import ReplyKeyboardRemove
 
