@@ -1,22 +1,20 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram import types
 
 
 def menu_kb():
-    kb = ReplyKeyboardMarkup(
+    kb = types.ReplyKeyboardMarkup(
         keyboard=[
-            [KeyboardButton(text='Закуски'),
-            KeyboardButton(text='Салаты')],
-            [KeyboardButton(text='Супы'),
-            KeyboardButton(text='Открытый огонь и Хоспер')],
-            [KeyboardButton(text='Сезоны Кыргызстана'),
-            KeyboardButton(text='Мясо, Рыба, Птица')],
-            [KeyboardButton(text='Гарниры'),
-            KeyboardButton(text='На Компанию')],
-            [KeyboardButton(text='Десерты'),
-            KeyboardButton(text='Хлеб и Выпечка')]
-        ],
-        # one_time_keyboard=True,
-        # resize_keyboard=True
+            [types.KeyboardButton(text='Закуски'),
+            types.KeyboardButton(text='Салаты')],
+            [types.KeyboardButton(text='Супы'),
+            types.KeyboardButton(text='Открытый огонь и Хоспер')],
+            [types.KeyboardButton(text='Сезоны Кыргызстана'),
+            types.KeyboardButton(text='Мясо, Рыба, Птица')],
+            [types.KeyboardButton(text='Гарниры'),
+            types.KeyboardButton(text='На Компанию')],
+            [types.KeyboardButton(text='Десерты'),
+            types.KeyboardButton(text='Хлеб и Выпечка')]
+        ]
     )
     return kb
 
