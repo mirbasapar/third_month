@@ -17,7 +17,8 @@ async def set_my_menu():
     await bot.set_my_commands([
         types.BotCommand(command="start", description="Начало"),
         types.BotCommand(command="myinfo", description="Мое инфо"),
-        types.BotCommand(command="menu", description="Меню", callback_data='menu'),
-        types.BotCommand(command="review", description="Отзыв", callback_data="review"),
-        types.BotCommand(command="stop_review", description="Стоп_Отзыв")
+        types.BotCommand(command="menu", description="Меню"),
+        types.BotCommand(command="review", description="Оставить Отзыв", callback_data="review"),
+        types.BotCommand(command="stop_review", description="Остановить Отзыв"),
+        types.BotCommand(command="get_ads", description="Получить объявления с сайта house.kg")
     ])

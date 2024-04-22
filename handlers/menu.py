@@ -1,6 +1,6 @@
 from aiogram import Router, types, F
 from aiogram.filters import Command
-# from keyboards.menu_kb import menu_kb
+from keyboards.menu_kb import menu_kb
 from bot import database
 
 
@@ -9,22 +9,7 @@ menu_router = Router()
 
 @menu_router.message(Command('menu'))
 async def start_cmd(message: types.Message):
-    kb = types.ReplyKeyboardMarkup(
-        keyboard=[
-            [types.KeyboardButton(text='Закуски'),
-            types.KeyboardButton(text='Салаты')],
-            [types.KeyboardButton(text='Супы'),
-            types.KeyboardButton(text='Открытый огонь и Хоспер')],
-            [types.KeyboardButton(text='Сезоны Кыргызстана'),
-            types.KeyboardButton(text='Мясо, Рыба, Птица')],
-            [types.KeyboardButton(text='Гарниры'),
-            types.KeyboardButton(text='На Компанию')],
-            [types.KeyboardButton(text='Десерты'),
-            types.KeyboardButton(text='Хлеб и Выпечка')]
-        ], 
-        resize_keyboard=True
-    )
-    await message.answer(f'Категорий меню:', reply_markup=kb)
+    await message.answer(f'Категорий меню:', reply_markup=menu_kb())
 
 
 categories = ['Закуски', 'Салаты', 'Супы', 'Открытый огонь и Хоспер', 'Сезоны Кыргызстана', 
@@ -35,7 +20,7 @@ categories = ['Закуски', 'Салаты', 'Супы', 'Открытый о
 async def show_menu(message: types.Message):
     category = message.text
     print(category)
-    kb = types.ReplyKeyboardRemove()
+    menu_kb = types.ReplyKeyboardRemove()
     data = await database.fetch(
         """
         SELECT f.* FROM menu m JOIN foods f 
@@ -45,8 +30,8 @@ async def show_menu(message: types.Message):
         fetch_type='all'
     )
     if not data:
-        await message.answer('По вашему запросу ничего не найдено', reply_markup=kb)
-    await message.answer(f'Все категории меню  - {category}:')
+        await message.answer('По вашему запросу ничего не найдено', reply_markup=menu_kb())
+    await message.answer(f'Категория меню - {category}:')
     for food in data:
         price = food['price']
         name = food['name']

@@ -2,7 +2,12 @@ import asyncio
 from aiogram import Bot
 import logging
 from bot import bot, dp, set_my_menu, database
-from handlers import start_router, pic_router, menu_router, review_router, echo_router
+from handlers.start import start_router
+from handlers.picture import pic_router
+from handlers.menu import menu_router
+from handlers.review import review_router
+from handlers.ads import ads_router
+from handlers.echo import echo_router
 
 
 async def on_startup(bot: Bot):
@@ -15,6 +20,7 @@ async def main():
     dp.include_router(pic_router)
     dp.include_router(review_router)
     dp.include_router(menu_router)
+    dp.include_router(ads_router)
 #в конце
     dp.include_router(echo_router)
 #запуск бота
