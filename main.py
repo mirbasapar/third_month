@@ -1,7 +1,7 @@
 import asyncio
 from aiogram import Bot
 import logging
-from bot import bot, dp, database, set_my_menu
+from bot import bot, dp, set_my_menu, database
 from handlers import start_router, pic_router, menu_router, review_router, echo_router
 
 
@@ -15,11 +15,10 @@ async def main():
     dp.include_router(pic_router)
     dp.include_router(review_router)
     dp.include_router(menu_router)
-    dp.startup.register(on_startup)
 #в конце
     dp.include_router(echo_router)
 #запуск бота
-
+    dp.startup.register(on_startup)
     
     await dp.start_polling(bot)
 
