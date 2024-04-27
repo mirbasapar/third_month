@@ -9,7 +9,6 @@ ads_router = Router()
 @ads_router.message(Command("get_ads"))
 async def get_ads(message: types.Message):
     crawler = HouseCrawler()
-    crawler.get_page()
-    house_links = crawler.get_house_links()
+    house_links = await crawler.get_houses()
     for link in house_links:
         await message.answer(link, parse_mode="HTML")
